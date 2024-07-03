@@ -109,7 +109,7 @@ function playGround() {
     p2 = getHumanChoice();
     p1 = getComputerChoice();
     
-    // Print Computer Choice
+    // Print Computer Choice to display to User
     console.log(`Computer(rock/paper/scissor): ${p1}`);
     
     // 0 - Tie, 1 - Player1Wins, 2- Player2Wins
