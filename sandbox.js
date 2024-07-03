@@ -33,17 +33,17 @@ function getHumanChoice() {
     // Get user input
     let humanChoice = prompt("You(rock/paper/scissor): ");
     // Check if answere matches rock
-    if (humanChoice.toLowerCase() == 'rock'){
+    if (humanChoice.toLowerCase() === 'rock'){
         // if yes, then return rock
         return 'rock';
     }
     // Check if answer matches paper
-    else if (humanChoice.toLowerCase() == 'paper'){
+    else if (humanChoice.toLowerCase() === 'paper'){
         // if yes. return paper
         return 'paper';
     }
     // Check if answer matches scissor
-    else if (humanChoice.toLowerCase() == 'rock'){
+    else if (humanChoice.toLowerCase() === 'scissor'){
         // if yes reutrn scissor
         return 'scissor';
     }
