@@ -10,7 +10,7 @@
 // 1. Get Computer Choice
 function getComputerChoice() {
     // Get Random Number between 1 to 9
-    let randomNum = Math.floor(Math.random() * (9 - 1 + 1)) + 1; // Got this in internet to get random min to max: Math.floor(Math.random() * (max - min + 1)) + min        
+    let randomNum = Math.floor(Math.random() * (9 - 1 + 1)) + 1; // Got this in internet to get random min to max: Math.floor(Math.random() * (max - min + 1)) + min
     // If number is less than or equal to 3
     if (randomNum <= 3) {
         //  then rocks
@@ -31,7 +31,7 @@ function getComputerChoice() {
 // 2. Get Human Choice
 function getHumanChoice() {
     // Get user input
-    let humanChoice = prompt("rock/paper/scissor: ");
+    let humanChoice = prompt("You(rock/paper/scissor): ");
     // Check if answere matches rock
     if (humanChoice.toLowerCase() == 'rock'){
         // if yes, then return rock
@@ -53,13 +53,7 @@ function getHumanChoice() {
     }
 }
 
-// 3. Right logic to play single round of Rock-Paper scissor
-function playGround() {
-    // 0 - Tie, 1 - Player1Wins, 2- Player2Wins
-    // Get Player1 and Player2 choice
-    p1 = getComputerChoice();
-    p2 = getHumanChoice();
-
+function rock_paper_scissor (p1, p2) {
     // if both player has same value
     if (p1 === p2){
         // tie: 0
@@ -107,6 +101,20 @@ function playGround() {
             return 1;
         }
     }
+}
+
+// 3. Right logic to play single round of Rock-Paper scissor
+function playGround() {
+    // Get Player1 and Player2 choice
+    p2 = getHumanChoice();
+    p1 = getComputerChoice();
+    
+    // Print Computer Choice
+    console.log(`Computer(rock/paper/scissor): ${p1}`);
+    
+    // 0 - Tie, 1 - Player1Wins, 2- Player2Wins
+    return rock_paper_scissor(p1, p2)
+    
 }
 
 // 4. Right logic to play n times and track score
