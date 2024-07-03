@@ -109,12 +109,17 @@ function playGround() {
     p2 = getHumanChoice();
     p1 = getComputerChoice();
     
-    // Print Computer Choice to display to User
+    // Print Human and Computer Choice to display to User
+    console.log(`Human(rock/paper/scissor): ${p2}`);
     console.log(`Computer(rock/paper/scissor): ${p1}`);
     
     // 0 - Tie, 1 - Player1Wins, 2- Player2Wins
     return rock_paper_scissor(p1, p2)
     
+}
+
+function printScore(humanScore, computerScore) {
+    console.log(`humanScore: ${humanScore}\ncomputerScore: ${computerScore}`)
 }
 
 // 4. Right logic to play n times and track score
@@ -135,10 +140,11 @@ for (let i = 0; i < ROUND; i++) {
     else if (result === 2) {
         humanScore += 2;
     }
-}
-// Once Loop end, Display Score and print the Winner
-console.log(`humanScore: ${humanScore}\ncomputerScore: ${computerScore}`)
 
+    printScore();
+}
+
+// Once Loop end, print the Winner
 if (computerScore > humanScore) {
     console.log("Computer Won");
 }
