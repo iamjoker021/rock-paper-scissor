@@ -54,10 +54,11 @@ function getHumanChoice() {
 }
 
 // 3. Right logic to play single round of Rock-Paper scissor
-function playGround(computerChoice, humanChoice) {
-    // Get Player1 and Player2
-    p1 = computerChoice;
-    p2 = humanChoice;
+function playGround() {
+    // 0 - Tie, 1 - Player1Wins, 2- Player2Wins
+    // Get Player1 and Player2 choice
+    p1 = getComputerChoice();
+    p2 = getHumanChoice();
 
     // if both player has same value
     if (p1 === p2){
@@ -106,4 +107,36 @@ function playGround(computerChoice, humanChoice) {
             return 1;
         }
     }
+}
+
+// 4. Right logic to play n times and track score
+// Create variable humanScore for human to track score and set to 0
+// Creaete variable computerScore for computer to track score and set to 0
+let humanScore = 0, computerScore = 0;
+// Create variable ROUND for No of rounds and set it to 5
+const ROUND = 5;
+// Loop ROUND times
+for (let i = 0; i < ROUND; i++) {
+    // For every loop call playGround and get the value in variable called result
+    result = playGround();
+    // If 1 increment computerScore by 1
+    if (result === 1) {
+        computerScore += 1;
+    }
+    // if 2 increment humanSCore by 1
+    else if (result === 2) {
+        humanScore += 2;
+    }
+}
+// Once Loop end, Display Score and print the Winner
+console.log(`humanScore: ${humanScore}\ncomputerScore: ${computerScore}`)
+
+if (computerScore > humanScore) {
+    console.log("Computer Won");
+}
+else if (humanScore > computerScore) {
+    console.log("You Won");
+}
+else {
+    console.log("TIEEEE");
 }
