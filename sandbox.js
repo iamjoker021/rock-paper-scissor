@@ -141,7 +141,7 @@ for (let i = 0; i < ROUND; i++) {
         humanScore += 2;
     }
 
-    printScore();
+    printScore(humanScore, computerScore);
 }
 
 // Once Loop end, print the Winner
