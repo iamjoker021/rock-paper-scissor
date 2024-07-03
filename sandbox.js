@@ -138,7 +138,7 @@ for (let i = 0; i < ROUND; i++) {
     }
     // if 2 increment humanSCore by 1
     else if (result === 2) {
-        humanScore += 2;
+        humanScore += 1;
     }
 
     printScore(humanScore, computerScore);
