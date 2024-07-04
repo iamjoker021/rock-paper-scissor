@@ -90,6 +90,7 @@ function printScore(humanScore, computerScore) {
 }
 
 // 4. Right logic to play n times and track score
+/*
 let humanScore = 0, computerScore = 0;
 const ROUND = 5;
 
@@ -117,3 +118,5 @@ else if (humanScore > computerScore) {
 else {
     console.log("TIEEEE");
 }
+
+*/
