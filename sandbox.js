@@ -1,7 +1,8 @@
 
 // Get Computer Choice
 function getComputerChoice() {
-    let randomNum = Math.floor(Math.random() * 3) + 1; // Got this in internet to get random min to max: Math.floor(Math.random() * (max - min + 1)) + min
+    // Get random number from 1 to 3
+    let randomNum = Math.floor(Math.random() * 3) + 1;
 
     if (randomNum === 1) {
         return 'rock'
@@ -20,13 +21,13 @@ function rockPaperScissorLogic(player1Choice, player2Choice) {
         return 0
     }
 
-    // Arrange option in way, where current elem is killed by next elem in rolling way
+    // Arrange option in way that:  current elem is killed by next elem in rolling way
+    // Rock(0) < Paper(1) < Scissor(2) < Rock(0)
     const options = ['rock', 'paper', 'scissor']
     player1Choice = options.indexOf(player1Choice)
     player2Choice = options.indexOf(player2Choice)
     
-    // If the player2 choose next elem then he wins, else it must bu previous so player1 wins
-    // Rock(0) < Paper(1) < Scissor(2) < Rock(0)
+    // If the player2 choose next elem then he wins, else it must appear before so player1 wins
     if ( (player1Choice+1 )%3 === player2Choice ) {
         return 2;
     }
