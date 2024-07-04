@@ -77,13 +77,13 @@ function printScoreToHTML(round, humanChoice, computerChoice, humanScore, comput
 
 // Variables to track the Game
 let humanScore = 0, computerScore = 0;
-let roundNum = 1;
+let roundNum = 0;
 
 // Add event lister to get humanChoice, trigger game on Click
-const choiceButton = document.querySelector('.button-options');
-choiceButton.addEventListener('click', (e) => {
-    let humanChoice = e.target.value;
+const choiceButtons = document.querySelector('.button-options');
+choiceButtons.addEventListener('click', (e) => {
     let computerChoice = getComputerChoice();
+    let humanChoice = e.target.value;
 
     // 0 - Tie, 1 - Player1/Argument1 wins the game, 2 - Player2/Argument2 wins the game
     let result = rockPaperScissorLogic(player1Choice= computerChoice, player2Choice= humanChoice);
@@ -95,18 +95,37 @@ choiceButton.addEventListener('click', (e) => {
         humanScore += 1;
     }
 
-    printScoreToHTML(roundNum, humanChoice, computerChoice, humanScore, computerScore);
     roundNum++;
+    printScoreToHTML(roundNum, humanChoice, computerChoice, humanScore, computerScore);
+
+    if (roundNum === 5) {
+        // Print the Final Result
+        const finalResult = document.querySelector('div.final-result');
+        
+        const humanScorePara = document.createElement('p');
+        humanScorePara.textContent = `humanScore: ${humanScore}`;
+        finalResult.appendChild(humanScore);
+
+        const computerScorePara = document.createElement('p');
+        computerScorePara.textContent = `humanScore: ${computerScore}`;
+        finalResult.appendChild(computerScore);
+
+        const resultPara = document.createElement('h4');
+        if (humanScore > computerScore) {
+            resultPara.textContent += `Human won Computer by ${humanScore - computerScore} points`
+        }
+        else if (computerScore > humanScore) {
+            resultPara.textContent += `Computer won Human by ${computerScore- humanScore} points`
+        }
+        else {
+            resultPara.textContent += "This is TIEEEEE"
+        }
+        finalResult.appendChild(resultPara);
+
+        // Disable all Buttons
+        const choiceButtons = document.querySelectorAll('button')
+        for (const button of choiceButtons) {
+            button.disabled = true;
+        }
+    }
 })
-
-// Once Loop end, print the Winner
-if (computerScore > humanScore) {
-    console.log("Computer Won");
-}
-else if (humanScore > computerScore) {
-    console.log("You Won");
-}
-else {
-    console.log("TIEEEE");
-}
-
