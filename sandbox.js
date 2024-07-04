@@ -86,14 +86,38 @@ function rock_paper_scissor(p1, p2) {
     
 // }
 
-function printScore(humanChoice, computerChoice, humanScore, computerScore) {
-    console.log(`humanChoice: ${humanChoice}\ncomputerChoice: ${computerChoice}\nhumanScore: ${humanScore} vs computerScore: ${computerScore}`)
+function printScore(round, humanChoice, computerChoice, humanScore, computerScore) {    
+    const printElem = document.querySelector('ul.round-result');
+
+    const list = document.createElement('li');
+    
+    const resultBlock = document.createElement('div');
+    
+    const roundPara = document.createElement('p');
+    roundPara.textContent = `ROUND: ${round}`;
+    resultBlock.appendChild(roundPara);
+    
+    const humanChoicePara = document.createElement('p');
+    humanChoicePara.textContent = `humanChoice: ${humanChoice}`;
+    resultBlock.appendChild(humanChoicePara);
+    
+    const computerChoicePara = document.createElement('p');
+    computerChoicePara.textContent = `computerChoice: ${computerChoice}`;
+    resultBlock.appendChild(computerChoicePara);
+    
+    const roundResultPara = document.createElement('p');
+    roundResultPara.textContent = `humanScore: ${humanScore} vs computerScore: ${computerScore}`;
+    resultBlock.appendChild(roundResultPara);
+
+    list.appendChild(resultBlock);
+    
+    printElem.appendChild(list);
 }
 
 // 4. Right logic to play n times and track score
 
 let humanScore = 0, computerScore = 0;
-const ROUND = 5;
+let roundNum = 1;
 
 // Add event lister to get humanChoice
 const choiceButton = document.querySelector('.button-options');
@@ -111,7 +135,8 @@ choiceButton.addEventListener('click', (e) => {
         humanScore += 1;
     }
 
-    printScore(humanChoice, computerChoice, humanScore, computerScore);
+    printScore(roundNum, humanChoice, computerChoice, humanScore, computerScore);
+    roundNum++;
 })
 
 // for (let i = 0; i < ROUND; i++) {
