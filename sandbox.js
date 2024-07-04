@@ -10,15 +10,15 @@
 // 1. Get Computer Choice
 function getComputerChoice() {
     // Get Random Number between 1 to 9
-    let randomNum = Math.floor(Math.random() * (9 - 1 + 1)) + 1; // Got this in internet to get random min to max: Math.floor(Math.random() * (max - min + 1)) + min
+    let randomNum = Math.floor(Math.random() * 3) + 1; // Got this in internet to get random min to max: Math.floor(Math.random() * (max - min + 1)) + min
 
-    if (randomNum <= 3) {
+    if (randomNum === 1) {
         return 'rock'
     }
-    else if (randomNum > 3 && randomNum <= 6) {
+    else if (randomNum === 2) {
         return 'paper';
     }
-    else if (randomNum > 6) {
+    else if (randomNum === 3) {
         return 'scissor';
     }
 }
@@ -71,20 +71,6 @@ function rock_paper_scissor(p1, p2) {
         }
     }
 }
-
-// 3. Right logic to play single round of Rock-Paper scissor
-// function playGround() {
-//     p2 = getHumanChoice();
-//     p1 = getComputerChoice();
-    
-//     // Print Human and Computer Choice to display to User
-//     console.log(`Human(rock/paper/scissor): ${p2}`);
-//     console.log(`Computer(rock/paper/scissor): ${p1}`);
-    
-//     // 0 - Tie, 1 - Player1Wins, 2- Player2Wins
-//     return rock_paper_scissor(p1, p2)
-    
-// }
 
 function printScoreToHTML(round, humanChoice, computerChoice, humanScore, computerScore) {    
     const printElem = document.querySelector('ul.round-result');
