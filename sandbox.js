@@ -86,7 +86,7 @@ function rock_paper_scissor(p1, p2) {
     
 // }
 
-function printScore(round, humanChoice, computerChoice, humanScore, computerScore) {    
+function printScoreToHTML(round, humanChoice, computerChoice, humanScore, computerScore) {    
     const printElem = document.querySelector('ul.round-result');
 
     const list = document.createElement('li');
@@ -135,7 +135,7 @@ choiceButton.addEventListener('click', (e) => {
         humanScore += 1;
     }
 
-    printScore(roundNum, humanChoice, computerChoice, humanScore, computerScore);
+    printScoreToHTML(roundNum, humanChoice, computerChoice, humanScore, computerScore);
     roundNum++;
 })
 
