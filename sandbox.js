@@ -20,29 +20,18 @@ function rockPaperScissorLogic(player1Choice, player2Choice) {
         return 0
     }
 
-    if (player1Choice === "rock"){
-        if (player2Choice === "paper") {
-            return 2
-        }
-        else {
-            return 1;
-        }
+    // Arrange option in way, where current elem is killed by next elem in rolling way
+    const options = ['rock', 'paper', 'scissor']
+    player1Choice = options.indexOf(player1Choice)
+    player2Choice = options.indexOf(player2Choice)
+    
+    // If the player2 choose next elem then he wins, else it must bu previous so player1 wins
+    // Rock(0) < Paper(1) < Scissor(2) < Rock(0)
+    if ( (player1Choice+1 )%3 === player2Choice ) {
+        return 2;
     }
-    else if (player1Choice === "paper") {
-        if (player2Choice === "rock") {
-            return 1;
-        }
-        else {
-            return 2;
-        }
-    }
-    else if (player1Choice === "scissor") {
-        if (player2Choice === "rock") {
-            return 2;
-        }
-        else {
-            return 1;
-        }
+    else {
+        return 1;
     }
 }
 
@@ -104,11 +93,11 @@ choiceButtons.addEventListener('click', (e) => {
         
         const humanScorePara = document.createElement('p');
         humanScorePara.textContent = `humanScore: ${humanScore}`;
-        finalResult.appendChild(humanScore);
+        finalResult.appendChild(humanScorePara);
 
         const computerScorePara = document.createElement('p');
-        computerScorePara.textContent = `humanScore: ${computerScore}`;
-        finalResult.appendChild(computerScore);
+        computerScorePara.textContent = `computerScore: ${computerScore}`;
+        finalResult.appendChild(computerScorePara);
 
         const resultPara = document.createElement('h4');
         if (humanScore > computerScore) {
